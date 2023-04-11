@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingViewController: UIViewController {
     
-    @IBOutlet var colorView: UIView!
+    @IBOutlet var colorViewSVC: UIView!
     
     @IBOutlet var redSliderValue: UILabel!
     @IBOutlet var greenSliderValue: UILabel!
@@ -19,10 +19,13 @@ final class SettingViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    var colorsEmptyVC: [CGFloat]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorView.layer.cornerRadius = 10
+        colorViewSVC.layer.cornerRadius = 10
         
+        setSliderValue()
         setColorView()
         
         redSliderValue.text = string(from: redSlider)
@@ -44,7 +47,7 @@ final class SettingViewController: UIViewController {
     }
     
     private func setColorView() {
-        colorView.backgroundColor = UIColor(
+        colorViewSVC.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
             green: CGFloat(greenSlider.value),
             blue: CGFloat(blueSlider.value),
@@ -54,6 +57,23 @@ final class SettingViewController: UIViewController {
     
     private func string(from slider:UISlider) -> String {
         String(format: "%.2f", slider.value)
+    }
+    
+    private func setSliderValue() {
+        if colorsEmptyVC.count != 2 {
+            redSlider.value = Float(colorsEmptyVC[0])
+            greenSlider.value = Float(colorsEmptyVC[1])
+            blueSlider.value = Float(colorsEmptyVC[2])
+        } else {
+            redSlider.value = Float(colorsEmptyVC[0])
+            greenSlider.value = Float(colorsEmptyVC[0])
+            blueSlider.value = Float(colorsEmptyVC[0])
+        }
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        //guard let emptyVC = segue.destination as? EmptyViewController else { return }
+        
     }
 }
 
