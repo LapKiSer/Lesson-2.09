@@ -18,8 +18,21 @@ final class EmptyViewController: UIViewController {
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard let settingVC = segue.source as? SettingViewController else { return }
-        colorView.backgroundColor = settingVC.colorView.backgroundColor
+        setColor(settingVC)
+        
     }
 }
 
+// MARK: - SetColor
+protocol SetColor {
+    func setColor(_ viewController: SettingViewController)
+    
+}
 
+extension EmptyViewController: SetColor {
+    func setColor(_ viewController: SettingViewController) {
+        colorView.backgroundColor = viewController.colorView.backgroundColor
+    }
+    
+    
+}
