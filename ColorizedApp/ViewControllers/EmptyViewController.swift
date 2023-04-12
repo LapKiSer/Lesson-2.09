@@ -11,14 +11,15 @@ final class EmptyViewController: UIViewController {
     
     @IBOutlet var colorView: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-                
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingVC = segue.destination as? SettingViewController else { return }
-        guard let cgColorComponen = colorView.backgroundColor?.cgColor.components as? [CGFloat] else { return }
-        settingVC.colorsEmptyVC = cgColorComponen
-        
+        settingVC.colorViewSVC = colorView.backgroundColor
+    }
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard let settingVC = segue.source as? SettingViewController else { return }
+        colorView.backgroundColor = settingVC.colorView.backgroundColor
     }
 }
+
+

@@ -18,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="fFb-BI-3XM"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="v0f-6S-xQb">
-                        <barButtonItem key="rightBarButtonItem" id="4F7-cV-oQb">
-                            <imageReference key="image" image="rectangle.portrait.and.arrow.forward.fill" catalog="system" symbolScale="large"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="4F7-cV-oQb">
+                            <imageReference key="image" image="rectangle.portrait.and.arrow.forward.fill" catalog="system" symbolScale="large" variableValue="5.5511151231257827e-17"/>
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="Osv-Fl-uUh"/>
                             </connections>
@@ -142,7 +142,7 @@
                                     <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="yYB-bj-orA" kind="unwind" unwindAction="unwindFor:" id="fue-Ie-jer"/>
+                                    <segue destination="yYB-bj-orA" kind="unwind" unwindAction="unwindFor:" id="CCr-WA-vS6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,7 +164,7 @@
                     <connections>
                         <outlet property="blueSlider" destination="hIC-rS-djK" id="qCX-Ff-qh3"/>
                         <outlet property="blueSliderValue" destination="HhG-T0-Bzr" id="VUK-FG-YiR"/>
-                        <outlet property="colorViewSVC" destination="cbk-IK-4mD" id="zi6-dm-FnS"/>
+                        <outlet property="colorView" destination="cbk-IK-4mD" id="zi6-dm-FnS"/>
                         <outlet property="greenSlider" destination="Y26-an-G0u" id="fiF-e9-YWR"/>
                         <outlet property="greenSliderValue" destination="I5P-Eo-PT3" id="HaI-MV-Hk9"/>
                         <outlet property="redSlider" destination="yHh-Ju-48J" id="rF7-Q5-xRD"/>
